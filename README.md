@@ -6,12 +6,13 @@ A structured collection of solutions to the **[LeetCode 75](https://leetcode.com
 
 LeetCode 75 is a hand-picked problem set designed to build a solid foundation across core topics. This repo organises solutions by topic, each in its own folder with a Markdown file containing:
 
-- Problem statement & link
+- Problem statement
 - Examples
-- Observations & algorithm walkthrough
-- Time / space complexity analysis
-- Code solution (Python)
-- Common mistakes / gotchas
+- Observations
+- Algorithm
+- Complexity
+- Code
+- Mistakes / Gotchas
 
 ## Topics Covered
 
