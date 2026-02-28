@@ -80,5 +80,5 @@ class Solution:
 
 ## Mistaks / Gotcha
 
-1. Not doing i-1 or i+! at their correct positions
+1. Not doing i-1 or i+1 at their correct positions
 2. Forgetting to decrement i inside the while loop.
