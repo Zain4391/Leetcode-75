@@ -23,7 +23,7 @@ Notice that you may not slant the container.
 
 ## Observations
 
-- If we think about this problem like a daily life task, we would realize that the water inside *any* container is restricted by the lower height/lower miniscus. That exact principle applies here. The minimum of the height is waht restricts the maximum area. Thus this becomes a greedy problem of **finding the minumum height which gives the maximum area**.
+- If we think about this problem like a daily life task, we would realize that the water inside *any* container is restricted by the lower height/lower miniscus. That exact principle applies here. The minimum of the height is what restricts the maximum area. Thus this becomes a greedy problem of **finding the minumum height which gives the maximum area**.
 
 - Secondly, maximum amount of water can also be stored in a vertically long container. Thus it then becomes **finding the maximum height which gives the maximum area**.
 
