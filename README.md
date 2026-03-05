@@ -14,6 +14,27 @@ LeetCode 75 is a hand-picked problem set designed to build a solid foundation ac
 - Code
 - Mistakes / Gotchas
 
+So the template is:
+
+```markdown
+
+# Problem Statement
+
+## Examples
+
+## Observations
+
+## Algorithm
+
+## Complexity
+
+## Code
+
+## Mistakes / Gotchas
+
+
+```
+
 ## Topics Covered
 
 | # | Topic |
