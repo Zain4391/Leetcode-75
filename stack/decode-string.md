@@ -61,7 +61,7 @@ class Solution:
                 while stack and stack[-1] != "[":
                     ch = stack.pop()
                     substr = ch + substr
-                stack.pop() # POP the ]
+                stack.pop() # POP the [
 
                 k = ""
                 while stack and stack[-1].isdigit():
