@@ -1,0 +1,101 @@
+# Problem Statement
+
+[Leetcode - Twin sum of Linked List](https://leetcode.com/problems/maximum-twin-sum-of-a-linked-list/description/?envType=study-plan-v2&envId=leetcode-75)
+
+In a linked list of size n, where n is even, the ith node (0-indexed) of the linked list is known as the twin of the (n-1-i)th node, **if 0 <= i <= (n / 2) - 1**.
+
+For example, if **n = 4**, then node 0 is the twin of node 3, and node 1 is the twin of node 2. These are the only nodes with twins for n = 4.
+The twin sum is defined as the sum of a node and its twin.
+
+Given the head of a linked list with even length, return the maximum twin sum of the linked list
+
+## Examples
+
+### Example 1
+
+**Input**: head = [5,4,2,1]
+**Output**: 6
+**Explanation**
+
+- Nodes 0 and 1 are the twins of nodes 3 and 2, respectively. All have twin sum = 6.
+- There are no other nodes with twins in the linked list.
+- Thus, the maximum twin sum of the linked list is 6.
+
+## Observations
+
+We can figure out the approach by plugging in values for the provided formual. Upon doing so we see that we have to essentially start from opposite ends of the list and move two pointers inward and maintain a max sum. But the tricky part is that the list provided is a _singly_ linked list, which does not allow reverse traversals.
+
+One approach is to simple put all elements of a linked list in a python list and then perform the two pointer approach. But this solution will have _O(n)_ space.
+
+There however is a way to achieve a solution by modifying the provided list in place to simulate the behaviour we would do in a python's list. There are 3 steps to that:
+
+1. Find the middle of the list
+2. Reverse the [middle, end] half of the list.
+3. Start two pointers, one from the start of the list and one from the other hald of the list. This simulated opposite ends in a python list.
+
+The above solution will have _O(1)_ space.
+
+## Algorithm
+
+1. Init two pointers, fast = head.next.next and slow = head.
+2. Run the loop until fast or fast.next != null.
+3. Move fast pointer at twice the speed of slow.
+4. Reverse the list from slow till end of the list.
+5. Start first and second pointers, at head and prev (head of reversed list) respectively and maintain the max sum of their values.
+6. Return the maximum sum.
+
+## Complexity
+
+- **Time**: _O(N)_
+- **Space**: _O(1)_
+
+## Code
+
+```python
+
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def pairSum(self, head: Optional[ListNode]) -> int:
+
+        # 1. Find middle of the list
+        fast = head.next.next
+        slow = head
+
+        while fast and fast.next:
+            slow = slow.next
+            fast = fast.next.next
+
+        curr = slow
+        prev = None
+
+        # 2. Reverse the middle of the list
+        while curr:
+            t = curr.next
+            curr.next = prev
+            prev = curr
+            curr = t
+
+        # 3. First = node 0, prev = node n - i - 1
+        first = head
+        second = prev
+        maxS = float('-inf')
+
+        while first and second:
+            s = first.val + second.val
+            maxS = max(s, maxS)
+            first = first.next
+            second = second.next
+
+        return maxS
+
+
+```
+
+## Mistakes / Gotchas
+
+1. Not moving the fast and slow pointers.
+2. Not assigning second = prev.
